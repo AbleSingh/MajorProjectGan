@@ -1,0 +1,6 @@
+  loaded_model = joblib.load('{}_yield_prediction_KNR_model3.joblib'.format(crop))
+  random_rows = df.sample(n=25, random_state=42)
+  X_random = random_rows.drop([crop], axis=1)
+  y_random = random_rows[crop]
+  X_random_selected = variance.transform(X_random)
+  random_predictions = loaded_model.predict(X_random_selected)
